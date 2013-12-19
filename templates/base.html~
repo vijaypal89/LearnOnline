@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>{% block title %}{% endblock %}</title>
+		{% block style %}{% endblock %}
+		{% block script %}{% endblock %}
+
+<style>
+
+        #tip
+        {
+            position: absolute;
+            z-index: 1000;
+            display: none;
+            padding: 5px;
+				padding-left: 15px;
+				padding-right: 15px;
+            -webkit-border-radius: 3px;
+            -moz-border-radius: 3px;
+            border-radius: 3px;
+            word-wrap: break-word;
+        }
+        .greenTip
+        {
+            color: #fff;
+            background: #1B6453;
+        }
+        .redTip
+        {
+            color: #fff;
+            background: #AF1E2D;
+        }
+        .blueTip
+        {
+            color: #fff;
+            background: #23238E;
+        }
+
+div.nav ul li:hover > ul {
+	display: block;
+}
+div.loguser ul li:hover > ul {
+	display: block;
+}
+div.tophead ul {
+	width: 100%;
+	height: 100px;
+	margin-top: -1px;
+	margin-bottom: -1px;
+	box-shadow: 0px 0px 9px rgba(0,0,0,0.15);
+	padding: 0;
+	font-size: 15px;
+	list-style: none;
+	position: relative;
+	display: inline-table;
+	color: white;
+}
+div.nav ul, div.loguser ul {
+	width: 100%;
+	margin-top: -1px;
+	background-color: rgb(45, 56, 76); 
+	background: linear-gradient(top, rgb(45, 56, 76) 0%, rgb(45, 56, 76) 100%);  
+	background: -moz-linear-gradient(top, rgb(45, 56, 76) 0%, rgb(45, 56, 76) 100%); 
+	background: -webkit-linear-gradient(top, rgb(45, 56, 76) 0%,rgb(45, 56, 76) 100%); 
+	box-shadow: 0px 0px 9px rgba(0,0,0,0.15);
+	border-radius: 5px;
+	padding: 0;
+	font-size: 20px;
+	list-style: none;
+	position: relative;
+	display: inline-table;
+	color: white;
+}
+div.nav ul:after, div.loguser ul:after {
+	content: ""; clear: both; display: block;
+}
+div.tophead ul li {
+	float: right;
+	display: block; padding: 15px 20px;
+	color: white; text-decoration: none;
+	text-align: left;
+
+}
+div.nav ul li {
+	border-radius: 5px;
+	float: left;
+	width: 150px;
+	display: block; padding: 15px 20px;
+	color: white; text-decoration: none;
+	text-align: center;
+
+}
+div.loguser ul li {
+	float: left;
+	width: 150px;
+	display: block; padding: 15px 20px;
+	color: white; text-decoration: none;
+	text-align: center;
+
+}
+div.nav ul li:hover, div.loguser ul li:hover {
+	color: black;
+	background: rgb(205, 205, 205);
+	cursor: pointer;
+
+}
+div.nav ul ul, div.loguser ul ul {
+	display: none;
+	width: 250px;
+	background-color: rgb(45, 56, 76); 
+	background: linear-gradient(top, rgb(45, 56, 76) 0%, rgb(45, 56, 76) 100%);  
+	background: -moz-linear-gradient(top, rgb(45, 56, 76) 0%, rgb(45, 56, 76) 100%); 
+	background: -webkit-linear-gradient(top, rgb(45, 56, 76) 0%,rgb(45, 56, 76) 100%); 
+	box-shadow: 0px 0px 9px rgba(0,0,0,0.15);
+	position: absolute; top: 100%;
+	margin-left: -20px;
+}
+div.nav ul ul li, div.loguser ul ul li {
+	padding: 15px 40px;
+	color: white;
+	width: 170px;
+	float: none; 
+	border-top: 1px solid #6b727c;
+	border-bottom: 1px solid #575f6a;
+	position: relative;
+	text-align: left;
+}
+
+div.nav ul ul li:hover, div.loguser ul ul li:hover {
+	background: rgb(205, 205, 205);
+	color: black;
+	cursor: pointer;
+}
+div.nav ul ul ul {
+	position: absolute; left: 100%; top:0;
+	margin-left: 0px;
+}
+div.nav{
+	color: white;
+	padding: 0;
+	margin-top: 150px;
+	margin-right: 10%;
+	margin-left: 10%;
+	width: 80%;
+}
+div.loguser{
+	color: white;
+	padding: 0;
+	width: 100%;
+}
+div.tophead{
+	color: white;
+	background-color: rgb(45, 56, 76); 
+	background: linear-gradient(top, rgb(45, 56, 76) 0%, rgb(45, 56, 76) 100%);  
+	background: -moz-linear-gradient(top, rgb(45, 56, 76) 0%, rgb(45, 56, 76) 100%); 
+	background: -webkit-linear-gradient(top, rgb(45, 56, 76) 0%,rgb(45, 56, 76) 100%); 
+	padding: 0;
+	width: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+	margin-top: -1px;
+}
+.button-link {
+	width: 300px;
+    padding: 5px 5px;
+    background: #4479BA;
+    color: #FFF;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    border: solid 1px #20538D;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+    -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
+    -webkit-transition-duration: 0.2s;
+    -moz-transition-duration: 0.2s;
+    transition-duration: 0.2s;
+    -webkit-user-select:none;
+    -moz-user-select:none;
+    -ms-user-select:none;
+    user-select:none;
+	font-size: 1.2em;
+}
+.button-link:hover {
+    background: #356094;
+    border: solid 1px #2A4E77;
+    text-decoration: none;
+}
+.button-link:active {
+    -webkit-box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.6);
+    -moz-box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.6);
+    box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.6);
+    background: #2E5481;
+    border: solid 1px #203E5F;
+}
+.tophead input[type=text],.tophead input[type=password]{
+	padding: 4px;
+	font-size: 15px;
+	text-shadow: 1px 1px 0px #fff;
+	outline: none;
+	background-color: white;
+
+}
+div.tophead li.log{
+	background-color: rgb(36, 67, 87);
+	box-shadow: 0 0 50px #777777;
+	border-radius: 5px;
+	margin-top: 44px;
+	margin-bottom: 5px;
+	margin-left: 5px;
+	margin-right: 10px;
+}
+div.tophead li.log:hover{
+	cursor: pointer;
+	color: black;
+	background-color: rgb(205, 205, 205);
+}
+
+div.tophead input, div.login input {
+	padding: 5px;
+	font-size: 15px;
+	text-shadow: 0px 1px 0px #fff;
+	outline: none;
+	background: -webkit-gradient(linear, left top, left bottom, from(#bcbcbe), to(#ffffff));
+	background: -moz-linear-gradient(top,  #bcbcbe,  #ffffff);
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	border: 1px solid #717171;
+	-webkit-box-shadow: 1px 1px 0px #efefef;
+	-moz-box-shadow: 1px 1px 0px #efefef;
+	box-shadow:  1px 1px 0px #efefef;
+}
+
+div.tophead input.image-sprites, div.login input.image-sprites {
+	padding: 4px 1px 4px 6px;
+	height: 27px;
+	width: 390px;
+	outline: none;
+	background: url('../../../image/input.png') top center no-repeat;
+	-webkit-border-radius: 0;
+	-moz-border-radius: 0;
+	border-radius: 0;
+	border: 0;
+	-webkit-box-shadow: 0 0 0;
+	-moz-box-shadow: 0 0 0;
+	box-shadow: 0 0 0;
+}
+
+div.tophead	input.image-sprites:focus, div.login input.image-sprites:focus {
+		background: url('images/input.png') bottom center no-repeat;
+		-webkit-box-shadow: 0px 0px 0px;
+		-moz-box-shadow: 0px 0px 0px;
+		box-shadow: 0px 0px 0px;
+		height: 27px;
+	}
+	
+div.tophead input.fail , div.login input.fail{
+	-webkit-box-shadow: 0px 0px 5px #ff4848;
+	-moz-box-shadow: 0px 0px 5px #ff4848;
+	box-shadow: 0px 0px 5px #ff4848;
+}
+	
+div.tophead	input:focus, div.login input:focus {
+		-webkit-box-shadow: 0px 0px 5px #007eff;
+		-moz-box-shadow: 0px 0px 5px #007eff;
+		box-shadow: 0px 0px 5px #007eff;
+	}
+#footer{
+	background-color: rgb(45, 56, 76);
+	width: 100%;
+	height: 150px;
+	margin-top: 100px;
+	clear: both;
+	position: absolute;
+	left:0;
+	margin-bottom: -1px;
+
+}
+#footer div.first{
+	margin-left: 15em;
+}
+
+#footer div.second{
+
+}
+#footer div.third img{
+	padding-right: 5px;
+}
+#footer div{
+	float: left;
+	width: 25%;
+}
+#footer div a{
+	color: white;
+	text-decoration: none;
+}
+#footer div a:hover{
+	text-decoration: underline;
+}
+
+</style>
+<script>
+$(document).ready(function() {
+	$('.signup').click(function(){
+					$.ajax({ url: 'http://0.0.0.0:8000/learn/signup/',
+					type: 'POST',
+					success: function(data){
+					$('.signcontent').html(data);
+				}
+				});
+				return false;
+	});
+});
+</script>
+	</head>
+	<body><div id="placefooter">
+<div class="tophead">
+	<ul>
+		<li class="log signup">SIGN IN</li>
+		<li class="log">LOGIN</li>
+		<li>Password:<p><input type="password" name="pass" size="25" class="showTip fail" alt="Enter your password"></p></li>
+		<li>Email or Username:<p><input type="text" name="usrid" size="25" class="showTip fail" alt="Enter your Email or Username" ></p></li>
+	</ul>
+</div><div class="signcontent">
+<div class="nav">
+	<ul class="nav">
+		<li>Home</li>
+		<li>Courses
+			<ul>
+				<li>Competition<ul>
+					<li>Engineering</li>
+					<li>Bank</li>
+					<li>SSC</li>
+				</ul></li>
+				<li>Professional<ul>
+					<li>B.Tech</li>
+					<li>Technology</li>
+				</ul></li>
+				<li>School level
+					<ul>
+						<li>Intermediate</li>
+						<li>Computer</li>
+					</ul>
+				</li>
+			</ul>
+		</li>
+		<li>About
+			<ul>
+				<li>About Us</li>
+				<li>Technical Team</li>
+			</ul>
+		</li>
+		<li>Contact Us</li>
+		<li style="position: absolute;right: 100px;">User
+			<ul style="width: 200px;">
+				<li style="width: 120px;">Profile</li>
+				<li style="width: 120px;">Logout</li>
+			</ul>
+		</li>
+	</ul>
+</div>
+{% if user.is_authenticated %}
+{% if user.is_active %}
+<div class="loguser">
+	<ul class="loguser">
+		<li style="position: absolute;right: 100px;">User
+			<ul style="width: 200px;">
+				<li style="width: 120px;">Profile</li>
+				<li style="width: 120px;">Logout</li>
+			</ul>
+		</li>
+	</ul>
+</div>{% endif %}{% endif %}
+{% block content %}{% endblock %}
+</div>
+<div id="footer">
+	<div class="first">
+	<p><a href="">Home</a></p>
+	<p><a href="">Courses</a></p>
+	<p><a href="">About Academy</a></p></div>
+	<div class="second">
+	<p><a href="">Contact us</a></p>
+	<p><a href="">About us</a></p>
+	</div>
+	<div class="third">
+	<p><img src="../../../static/image/tr.jpg" width="25" height="25"><a href="">Follow on Twitter</a></p>
+	<p><img src="../../../static/image/fb.png" width="25" height="25"><a href="">Follow us on Facebook</a></p>
+	</div>
+</div></div>
+	</body>
+</html>

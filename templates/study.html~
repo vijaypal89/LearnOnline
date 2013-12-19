@@ -1,0 +1,61 @@
+<style>
+.subcontent{
+	width: 80%;
+	padding-left: 10%;
+	padding-right: 10%;
+	margin-top: -30px;
+	margin-bottom: 100px;
+}
+.subject{
+	width: 20%;
+	float: left;
+}
+table.sub{
+	border-collapse: collapse;
+	width: 100%;
+	border: 2px solid rgb(150, 150, 150);
+	table-layout: fixed;
+}
+
+table.sub th{
+	background-color: rgb(54, 12, 56);
+	color: white;
+	text-align: left;
+}
+table.sub td{
+	width:100%;
+	padding: 15px;
+	background-color: #F7F3E9;
+	border: 2px solid rgb(150, 150, 150);
+	text-align: left;
+}
+
+table.sub td:hover{
+	background-color: rgb(36, 67, 87);
+	color: white;
+	cursor: pointer;
+}
+.aboutsub{
+	background-color: rgb(222, 211, 222);
+	padding-left: 28%;
+	padding-top: 50px;
+}
+</style>
+
+	<div class="subcontent">
+		<div class="subject">
+			<table class="sub">
+				<tr><th>Physics</th></tr>	
+				<tr><td>Electrostatics</td></tr><tr><td>Current and Magnetism</td></tr>
+				<tr><td>Electromagnetic Waves</td></tr><tr><td>Optics</td></tr>
+				<tr><td></td></tr><tr><td>Electronic Device</td></tr>
+				<tr><td>abcd efgh ijkl</td></tr><tr><td>abcd efgh ijkl</td></tr>
+				<tr><td>abcd efgh ijkl</td></tr><tr><td>abcd efgh ijkl</td></tr>
+			</table>
+		</div>
+		<div class="aboutsub">
+			<p> This uses Ajax.</p>
+			<p> something about subject</p>
+		</div>
+	</div>	
+
